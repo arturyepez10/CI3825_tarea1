@@ -12,3 +12,7 @@ Desarrollar un programa que cuente el número de apariciones de cada palabra en 
 Se preocedera a dividir el trabajo en los siguientes archivos que tengan funciones para su uso luego:
 * `linkedList` contiene las funciones asociadas al manejo de una Lista Simplemente Enlazada.
 * `main` archivo principal que es donde se manejan las llamadas a linkedList y se maneja el archivo a ser leido.
+
+La solucion se planteo de la siguiente manera: En el archivo `main.c` se itera sobre los argumentos que se le pasan al programa. Con cada argumento se abre un archivo, se leen todas las lineas y por cada linea leida se agrega un nodo a la Lista Simplemente Enlazada. 
+
+Luego de iterar sobre todos los argumentos, haber leido todas las lineas de todos los archivos tenemos una lista enlazada con todos los valores y la cantidad de veces que se repiten, se procede a llamar al metodo encargado de hacer un Sort sobre los nodos de la lista actualmente creada. Al final, se  imprime la lista ordenada en conjunto con el contador de la cantidad de veces que se repite la palabra.
