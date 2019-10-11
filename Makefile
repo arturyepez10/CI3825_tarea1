@@ -1,8 +1,8 @@
-main: main.o readFile.o
-	gcc main.o readFile.o -o main
+frecpal: main.o linkedList.o
+	gcc main.o linkedList.o -o frecpal
 
-readFile.o: readFile.c
-	gcc -c readFile.c -o readFile.o
+linkedList.o: linkedList.c
+	gcc -c linkedList.c -o linkedList.o
 
 main.o: main.c
 	gcc -c main.c -o main.o
