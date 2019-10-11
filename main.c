@@ -1,12 +1,15 @@
+/*
+  TAREA 1
+  Alumno: Arturo Yepez 15-11551
+*/
+
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h> // Para salir del programa.
 
 // Funciones que debe recibir
-#include "readFile.h"
-
-// Se define el maximo de lineas que puede tener un 
-#define MAXLINE 1024
+#include "linkedList.h"
 
 /*
 * Funcion: MAIN
@@ -24,16 +27,49 @@
 
 int main(int argc, char *argv[]) {
 
-    // Maneja el caso en que no haya la cantidad necesaria de argumentos.
-    if (argc != 2) {
+    // Maneja el caso en que no haya la cantidad minima necesaria de argumentos.
+    if (argc < 2) {
         printf("ERROR: No se encontro el nombre del archivo.\n");
-        return 0;
+        return -1;
     }
 
-    // Llama a la funcion que lee el archivo de texto.
-    char hola[MAXLINE];
-    strcpy(hola, argv[1]);
-    readFile(hola);
+    // Se crea un ciclo que recorra el archivo y vaya agregando todos los archivos
+    int i = 2;
 
-    return 0;
+    // Comprueba la cantidad de archivos por abrir
+    if (argc - 2 == *argv[1]) {
+        printf("ERROR: El numero de archivos en el argumento no coincide con la cantidad de archivos por recorrer.\n");
+        exit(1);
+    }
+
+    // Inicializa la lista
+    node head = NULL;
+
+    // Comienza el recorrido entre los archivos
+    while (i < argc) {
+        // Se abre el archivo que se desea contabilizar
+        FILE *file = fopen(argv[i], "r");
+
+        // Si el archivo no existe o no puede leerse salta una excepcion
+        if(file == NULL) {
+            exit(1);
+        }
+
+        // Se inicializa la variable del buffer con la que se 
+        char buffer[100];
+
+        while(fscanf(file, "%s[^\n]", buffer) != EOF) {
+            addNode(&head, buffer);
+        }
+
+        // Cierra el archivo que se tenia abierto
+        fclose(file);
+        i++;
+    }
+
+     // Ordena la lista y luego la imprime
+    sortList(head);
+    printList(&head);
+
+    exit(0);
 }
