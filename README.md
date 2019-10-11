@@ -10,4 +10,3 @@ Desarrollar un programa que cuente el número de apariciones de cada palabra en 
 ## IMPLEMENTACION
 
 Se preocedera a dividir el trabajo en los siguientes archivos que tengan funciones para su uso luego:
-* `readFile.c` que contiene la funcion encargada de manejar la lectura del archivo de texto.
