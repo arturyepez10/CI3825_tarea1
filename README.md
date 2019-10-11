@@ -10,3 +10,5 @@ Desarrollar un programa que cuente el número de apariciones de cada palabra en 
 ## IMPLEMENTACION
 
 Se preocedera a dividir el trabajo en los siguientes archivos que tengan funciones para su uso luego:
+* `linkedList` contiene las funciones asociadas al manejo de una Lista Simplemente Enlazada.
+* `main` archivo principal que es donde se manejan las llamadas a linkedList y se maneja el archivo a ser leido.
